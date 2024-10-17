@@ -61,15 +61,14 @@ export class CrudService {
     this.post('/logout', {}).subscribe({
       next(data) {
         localStorage.clear();
-        this.router.navigate(['users/login']);
         console.log('logout');
       },
       error(error) {
         localStorage.clear();
-        this.router.navigate(['users/login']);
         console.log(error);
       },
     });
+    this.router.navigate(['users/login']);
   }
 
   setlocalstorage($data: any) {

@@ -3,16 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { NotificationService } from './shared/notification';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ToastrModule.forRoot({
+      timeOut: 1000, // 15 seconds
+      closeButton: true,
+      progressBar: true,
+    }),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [NotificationService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
