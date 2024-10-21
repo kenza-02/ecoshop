@@ -1,1 +1,116 @@
-<p>sidebar works!</p>
+<div class="app-admin-wrap layout-sidebar-large clearfix">
+  <div class="col-md-12 p-0">
+    <div class="main-header">
+      <div class="col-md-12">
+        <div class="row row-xs clearfix">
+          <div class="col-md-11">
+            <div class="d-flex align-items-center">
+              <!-- Mega menu -->
+              <div class="dropdown mega-menu d-none d-md-block">
+                <a
+                  class="tx-ether tx-bolder"
+                  style="
+                    font-family: 'Roboto';
+                    text-align: center;
+                    vertical-align: middle;
+                    text-shadow: 0px 1px 0px #ffffff;
+                  "
+                >
+                  <p class="tx-26 tx-ether tx-uppercase mb-0">
+                    <img
+                      id="userDropdown"
+                      alt=""
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      width="100"
+                      src="./assets/img/logo.png"
+                    />
+                    Eco Shop
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-1">
+            <div class="header-part-right float-right py-2">
+              <div class="dropdown">
+                <div
+                  class="badge-top-container"
+                  id="dropdownNotification"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <span
+                    class="badge badge-primary"
+                    style="padding: 1px !important"
+                    >12</span
+                  >
+                  <i
+                    class="fad fa-bells tx-primary tx-14 text-muted header-icon"
+                    style="padding: 6px; border-radius: 50%"
+                  ></i>
+                </div>
+              </div>
+              <div class="dropdown">
+                <div class="user col align-self-end">
+                  <img
+                    id="userDropdown"
+                    alt=""
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    src="./assets/img/avatarH.png"
+                  />
+                  <div
+                    class="dropdown-menu dropdown-menu-right"
+                    aria-labelledby="userDropdown"
+                  >
+                    <div class="dropdown-header">
+                      <i class="i-Lock-User mr-1"></i>
+                      Mouhamadou MBALLO
+                    </div>
+                    <a class="dropdown-item" (click)="logout()"
+                      >Se deconnecter</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="side-content-wrap">
+    <div
+      class="sidebar-left open rtl-ps-none"
+      data-perfect-scrollbar
+      data-suppress-scroll-x="true"
+    >
+      <ul class="navigation-left">
+        <ng-container *ngFor="let item of mymenu">
+          <li class="nav-item" data-item="dashboard">
+            <a class="nav-item-hold" [routerLink]="item?.url">
+              <i
+                [class]="item?.icone"
+                style="padding: 6px; border-radius: 50%"
+              ></i>
+              <span class="nav-text">{{ item?.nom }}</span>
+            </a>
+            <div class="triangle"></div>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+  <div class="main-content-wrap sidenav-open d-flex flex-column bg-white">
+    <div class="row row-xs clearfix mt-3">
+      <div class="col-md-12 pt-6">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

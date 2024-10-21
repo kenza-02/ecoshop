@@ -1,0 +1,55 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "nomUtilisateur": "Kenza",
+      "mailUtilisateur": "ahmedmballo7@gmail.com",
+      "prenom": "Mouhamadou",
+      "nom": "MBALLO",
+      "motDepasse": "12345678"
+    }
+  ],
+  "produit": [
+    {
+      "nom": "Environnement day",
+      "image": "https://img.freepik.com/free-psd/vertical-poster-template-world-environment-day-celebration_23-2150373998.jpg?t=st=1729513498~exp=1729517098~hmac=6e01b9383ff8f8ac70f3398d60867095f98ea21e0d0b8aae78ff0591e0733d40&w=1060",
+      "prix": 12355,
+      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sit iste adipisci totam ullam, beatae tenetur aliquam perferendis facere obcaecati in nihil ratione laudantium, sapiente corporis consectetur cupiditate veritatis reiciendis dicta ex veniam suscipit, porro nemo optio. Dolore repellendus beatae voluptatibus quis a totam ratione neque, architecto tempore consequuntur. Harum explicabo sit suscipit iusto, fuga rem eligendi dolor quis repudiandae odit libero cumque alias in laborum placeat officiis dolorum. Ratione laboriosam accusantium excepturi praesentium architecto velit tempore aspernatur! Nisi ratione enim, est sed consequatur impedit quibusdam ea illum accusamus saepe dolores vitae ullam, iusto perferendis cupiditate. Repellendus aliquam ipsum id!",
+      "id": "5e8e"
+    },
+    {
+      "nom": "Connaitre l'environnement",
+      "image": "https://img.freepik.com/free-photo/cheerful-man-with-environmental-conservation-symbols_53876-65653.jpg?t=st=1729513608~exp=1729517208~hmac=516656d271183a0828727e1f276947128748f2c73332afec112a13d474ed2b6f&w=900",
+      "prix": 50000,
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores voluptatibus similique velit libero, illo ipsum odio quia labore ab possimus quod, enim officiis nihil doloremque maiores eos. Enim soluta quibusdam quae explicabo sunt totam doloremque, omnis, consequuntur quasi eaque veniam ducimus possimus necessitatibus reiciendis numquam aspernatur officiis! Qui neque natus perferendis maxime illum ea ratione, voluptates rem, reiciendis aut vel optio soluta commodi error molestias odit deserunt omnis? Mollitia vitae illum enim in voluptatibus nobis id reiciendis nisi, ex dolorem voluptas, cumque natus, repudiandae qui officiis iure. Vel cum ducimus facere est tenetur sapiente deserunt ullam, quidem error praesentium possimus.",
+      "id": "8331"
+    },
+    {
+      "nom": "Enjoy little",
+      "image": "https://img.freepik.com/free-psd/flyer-template-with-hands-holding-plant-soil_23-2148413534.jpg?t=st=1729513697~exp=1729517297~hmac=2a389781fc50c684f1aed05cf4bd562205d9a514df484a0f2a7ce6c5eb65235b&w=1060",
+      "prix": 17000,
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores voluptatibus similique velit libero, illo ipsum odio quia labore ab possimus quod, enim officiis nihil doloremque maiores eos. Enim soluta quibusdam quae explicabo sunt totam doloremque, omnis, consequuntur quasi eaque veniam ducimus possimus necessitatibus reiciendis numquam aspernatur officiis! Qui neque natus perferendis maxime illum ea ratione, voluptates rem, reiciendis aut vel optio soluta commodi error molestias odit deserunt omnis? Mollitia vitae illum enim in voluptatibus nobis id reiciendis nisi, ex dolorem voluptas, cumque natus, repudiandae qui officiis iure. Vel cum ducimus facere est tenetur sapiente deserunt ullam, quidem error praesentium possimus.",
+      "id": "488f"
+    }
+  ],
+  "commande": [
+    {
+      "id": "4618",
+      "textePublication": "Je suis un étudiant",
+      "imagePublication": "https://img.freepik.com/photos-gratuite/etudiant-africain-tenue-rouge-posant-sourire-interesse-homme-noir-bonne-humeur-dans-verres-tenant-livres-exprimant-bonheur_197531-20293.jpg?t=st=1727365555~exp=1727369155~hmac=52b9a9da46718041538f47d3415b1ae56a622c47445bcf537b2a90b679cb745f&w=740",
+      "idUtilisateur": "c9dc",
+      "datePublication": "2024-09-26T15:46:16.362Z",
+      "likePublication": 0,
+      "auteur": "Kenza"
+    },
+    {
+      "id": "2721",
+      "textePublication": "Test0088 OKLM",
+      "imagePublication": "https://img.freepik.com/photos-gratuite/femme-souriante-afro-posant-dans-pull-rose_273609-31988.jpg?t=st=1727366104~exp=1727369704~hmac=9fdea7ffc4ab3d4624e11cb0f3b30fa05d7a3abd39dbeb8984017a813504be0e&w=1800",
+      "idUtilisateur": "c9dc",
+      "datePublication": "2024-09-26T15:55:38.728Z",
+      "likePublication": 0,
+      "auteur": "Kenza"
+    }
+  ]
+}

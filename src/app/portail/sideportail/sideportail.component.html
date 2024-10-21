@@ -1,1 +1,184 @@
-<p>sideportail works!</p>
+<div class="app-admin-wrap layout-sidebar-large clearfix">
+  <div class="col-md-12 p-0">
+    <div class="main-header">
+      <div class="col-md-12">
+        <div class="row row-xs clearfix">
+          <div class="col-md-10">
+            <div class="d-flex align-items-center">
+              <!-- Mega menu -->
+              <div class="dropdown mega-menu d-none d-md-block">
+                <a
+                  class="tx-ether tx-bolder"
+                  style="
+                    font-family: 'Roboto';
+                    text-align: center;
+                    vertical-align: middle;
+                    text-shadow: 0px 1px 0px #ffffff;
+                  "
+                >
+                  <p class="tx-26 tx-ether tx-uppercase mb-0">
+                    <img
+                      id="userDropdown"
+                      alt=""
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      width="100"
+                      src="./assets/img/logo.png"
+                    />
+                    Eco Shop
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="header-part-right float-right py-2">
+              <button class="btn btn-primary">Administration</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-12 py-4">
+  <div class="col-md-12 pt-6">
+    <div class="card text-left">
+      <div class="card-body p-4">
+        <div class="carousel_wrap">
+          <div
+            id="carouselExampleIndicators"
+            class="carousel slide"
+            data-ride="carousel"
+          >
+            <ol class="carousel-indicators">
+              <li
+                *ngFor="let item of listimgaccueil; let i = index"
+                data-target="#carouselExampleIndicators"
+                data-slide-to="i"
+                [ngClass]="{ active: i == 0 }"
+              ></li>
+            </ol>
+            <div class="carousel-inner">
+              <div
+                class="carousel-item"
+                *ngFor="let item of listimgaccueil; let i = index"
+                [ngClass]="{ active: i == 0 }"
+              >
+                <img
+                  class="d-block w-100 size-slider-gallerie"
+                  [src]="'./assets/img/' + item?.url"
+                  alt="First slide"
+                />
+                <div class="carousel-caption">
+                  <h3 class="slider-style">
+                    {{ item?.name }}
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <a
+              class="carousel-control-prev"
+              [href]="['#carouselExampleIndicators']"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only"> Précédent</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              [href]="['#carouselExampleIndicators']"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Suivant</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 p-0 mt-2">
+    <div class="row justify-content-between mg-0 pd-0 pt-3 pb-3">
+      <div class="col-lg-12">
+        <h5 class="tx-ether tx-20 tx-bolder">
+          <i
+            class="fad fa-store bg-white tx-primary tx-30"
+            style="padding: 6px; border-radius: 50%"
+          ></i>
+          Nos produits
+        </h5>
+      </div>
+    </div>
+    <div class="col-md-12 pb-2 bgtera" *ngIf="loarding == true && produit">
+      <div class="row">
+        <div
+          class="col-lg-3 pl-2 pr-2 pt-2"
+          *ngFor="let item of produit; let i = index"
+        >
+          <div class="card">
+            <div class="card-body">
+              <div class="card-profile-1 mb-4">
+                <div class="text-center">
+                  <div class="avatar9 box-shadow-2 mb-3">
+                    <img [src]="item?.image" alt="Second slide" />
+                  </div>
+                </div>
+              </div>
+              <ul class="list-group list-group-flush tx-center">
+                <li class="list-group-item p-0 text-primary tx-20">
+                  <div class="tailledesc2">
+                    {{ item?.nom }}
+                  </div>
+                </li>
+                <li class="list-group-item p-0 tx-bolder tx-warning">
+                  <div class="tailledesc2">
+                    {{ item?.description }}
+                  </div>
+                </li>
+              </ul>
+              <div class="tx-center">
+                <span class="text-primary tx-bolder">
+                  <i
+                    class="fal fa-wallet text-primary mr-2 bg-gray-100 btn-primary"
+                    style="padding: 10px; border-radius: 50%"
+                  ></i>
+                  {{ item?.prix }} FCFA
+                </span>
+              </div>
+              <div class="card-body tx-center">
+                <button class="btn btn-primary btn-rounded">
+                  <i class="fal fa-basket-shopping mr-2 tx-white"></i> Commander
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12" *ngIf="!produit">
+      <div class="col-md-12 text-center noData">
+        <app-loarding></app-loarding>
+      </div>
+    </div>
+    <!-- NO DATA -->
+    <div *ngIf="loarding == false && produit" class="col-md-12">
+      <br />
+      <br />
+      <div class="col-md-12 text-center noData">
+        <app-no-data></app-no-data>
+      </div>
+      <br />
+      <br />
+    </div>
+  </div>
+</div>

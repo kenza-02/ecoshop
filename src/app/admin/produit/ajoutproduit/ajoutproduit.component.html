@@ -1,0 +1,78 @@
+<div class="col-md-12 py-4">
+  <div class="card">
+    <div class="col-md-8 offset-md-2 py-2">
+      <form [formGroup]="addproduitForm">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="tx-facebook">
+                <i class="fad fa-plus-circle bg-gray-100 tx-primary tx-20"></i>
+                Ajouter produit
+              </h2>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="tx-facebook">Nom&nbsp;</label>
+                <input
+                  type="text"
+                  class="form-control no-radius"
+                  formControlName="nom"
+                />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="tx-facebook">Prix&nbsp;</label>
+                <input
+                  type="number"
+                  min="0"
+                  class="form-control no-radius"
+                  formControlName="prix"
+                />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="tx-facebook">Description </label>
+                <textarea
+                  formControlName="description"
+                  class="form-control"
+                  rows="4"
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="tx-facebook">Lien image&nbsp;</label>
+                <input
+                  type="text"
+                  class="form-control no-radius"
+                  formControlName="image"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 text-center">
+          <button
+            (click)="initAddproduit()"
+            class="btn btn-brand btn-secondary"
+            data-dismiss="modal"
+            [disabled]="loading == true"
+          >
+            Annuler</button
+          >&nbsp;
+          <button
+            type="button"
+            class="btn btn-brand btn-primary"
+            [disabled]="addproduitForm.invalid || loading == true"
+            (click)="save_produit()"
+          >
+            <i *ngIf="loading == true" class="fas fa-spinner fa-spin"></i>
+            Ajouter
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

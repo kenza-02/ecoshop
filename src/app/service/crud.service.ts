@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+import axios from 'axios';
 
 @Injectable({
   providedIn: 'root',
@@ -16,24 +17,28 @@ export class CrudService {
   post(hote: string, gert: any) {
     const $request = this.gettokenparams(localStorage.getItem('access_token'));
     const url = this.fullUrl + hote;
-    return this.http.post(url, gert, $request);
+    return axios.post(url, gert);
+    // return this.http.post(url, gert, $request);
   }
 
   put(hote: string, gert: any, id: any) {
     const $request = this.gettokenparams(localStorage.getItem('access_token'));
     const url = this.fullUrl + hote + id;
-    return this.http.put(url, gert, $request);
+    return axios.put(url, gert);
+    //return this.http.put(url, gert, $request);
   }
 
   delete(hote: string, $id: any) {
     const $request = this.gettokenparams(localStorage.getItem('access_token'));
     const url = this.fullUrl + hote + $id;
-    return this.http.delete(url, $request);
+    return axios.delete(url);
+    //return this.http.delete(url, $request);
   }
   get(hote: string) {
     const $request = this.gettokenparams(localStorage.getItem('access_token'));
     const url = this.fullUrl + hote;
-    return this.http.get(url, $request);
+    return axios.get(url);
+    //return this.http.get(url, $request);
   }
   getById(hote: string, $id: any) {
     const $request = this.gettokenparams(localStorage.getItem('access_token'));
@@ -58,17 +63,8 @@ export class CrudService {
     return authToken !== null ? true : false;
   }
   doLogout() {
-    this.post('/logout', {}).subscribe({
-      next(data) {
-        localStorage.clear();
-        console.log('logout');
-      },
-      error(error) {
-        localStorage.clear();
-        console.log(error);
-      },
-    });
-    this.router.navigate(['users/login']);
+    localStorage.clear();
+    this.router.navigate(['']);
   }
 
   setlocalstorage($data: any) {

@@ -6,9 +6,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NotificationModule } from './notification';
 import { LoardingComponent } from './loarding/loarding.component';
 import { NoDataComponent } from './no-data/no-data.component';
+import { FilterPipe } from './pipe/filter.pipe';
 
 @NgModule({
-  declarations: [LoardingComponent, NoDataComponent],
+  declarations: [LoardingComponent, NoDataComponent, FilterPipe],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -23,6 +24,9 @@ import { NoDataComponent } from './no-data/no-data.component';
     FormsModule,
     RouterModule,
     NgxPaginationModule,
+    FilterPipe,
+    LoardingComponent,
+    NoDataComponent,
   ],
 })
 export class SharedModule {}
