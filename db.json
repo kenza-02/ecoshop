@@ -34,22 +34,197 @@
   ],
   "commande": [
     {
-      "id": "4618",
-      "textePublication": "Je suis un étudiant",
-      "imagePublication": "https://img.freepik.com/photos-gratuite/etudiant-africain-tenue-rouge-posant-sourire-interesse-homme-noir-bonne-humeur-dans-verres-tenant-livres-exprimant-bonheur_197531-20293.jpg?t=st=1727365555~exp=1727369155~hmac=52b9a9da46718041538f47d3415b1ae56a622c47445bcf537b2a90b679cb745f&w=740",
-      "idUtilisateur": "c9dc",
-      "datePublication": "2024-09-26T15:46:16.362Z",
-      "likePublication": 0,
-      "auteur": "Kenza"
+      "id": "95a0",
+      "nbcommande": 1,
+      "total": 24710,
+      "totalliv": 24710,
+      "prenom": "ydè",
+      "telephone": "77",
+      "adresse": "è-fè--è"
     },
     {
-      "id": "2721",
-      "textePublication": "Test0088 OKLM",
-      "imagePublication": "https://img.freepik.com/photos-gratuite/femme-souriante-afro-posant-dans-pull-rose_273609-31988.jpg?t=st=1727366104~exp=1727369704~hmac=9fdea7ffc4ab3d4624e11cb0f3b30fa05d7a3abd39dbeb8984017a813504be0e&w=1800",
-      "idUtilisateur": "c9dc",
-      "datePublication": "2024-09-26T15:55:38.728Z",
-      "likePublication": 0,
-      "auteur": "Kenza"
+      "id": "fee4",
+      "nbcommande": 2,
+      "total": 112355,
+      "totalliv": 112355,
+      "prenom": "vhuuy",
+      "telephone": "777",
+      "adresse": "UGU"
+    },
+    {
+      "id": "f158",
+      "nbcommande": 2,
+      "total": 112355,
+      "totalliv": 112355,
+      "prenom": "uiui",
+      "telephone": "77",
+      "adresse": "ufuu"
+    },
+    {
+      "id": "e815",
+      "nbcommande": 2,
+      "total": 162355,
+      "totalliv": 162355,
+      "prenom": "22GIU",
+      "telephone": "8777",
+      "adresse": "Igui"
+    },
+    {
+      "id": "703a",
+      "nbcommande": 2,
+      "total": 112355,
+      "totalliv": 112355,
+      "prenom": "Aui",
+      "telephone": "77",
+      "adresse": "uyu"
+    },
+    {
+      "id": "d518",
+      "nbcommande": 2,
+      "total": 112355,
+      "prenom": "gui",
+      "nom": "ugi",
+      "telephone": "777",
+      "adresse": "88"
+    },
+    {
+      "id": "ea9a",
+      "nbcommande": 1,
+      "total": 12355,
+      "prenom": "22",
+      "nom": "hu",
+      "telephone": "222",
+      "adresse": "RRR"
+    },
+    {
+      "id": "cf15",
+      "nbcommande": 1,
+      "total": 12355,
+      "prenom": "iuiu",
+      "nom": "huh",
+      "telephone": "888",
+      "adresse": "jhu"
+    },
+    {
+      "id": "87c0",
+      "nbcommande": 2,
+      "total": 112355,
+      "prenom": "JHHJ",
+      "nom": "kjk",
+      "telephone": "7878",
+      "adresse": "HGH"
+    }
+  ],
+  "panier": [
+    {
+      "id": "8165",
+      "produit": "8331",
+      "quantite": 2,
+      "sous_total": 100000
+    },
+    {
+      "id": "b5f4",
+      "produit": "5e8e",
+      "quantite": 1,
+      "sous_total": 12355
+    },
+    {
+      "id": "92d8",
+      "produit": "8331",
+      "quantite": 2,
+      "sous_total": 100000
+    },
+    {
+      "id": "5db5",
+      "produit": "5e8e",
+      "quantite": 1,
+      "sous_total": 12355
+    },
+    {
+      "id": "afdd",
+      "produit": "8331",
+      "quantite": 3,
+      "sous_total": 150000
+    },
+    {
+      "id": "7c7c",
+      "produit": "5e8e",
+      "quantite": 1,
+      "sous_total": 12355
+    },
+    {
+      "id": "bd2b",
+      "produit": "8331",
+      "nomProduit": "Connaitre l'environnement",
+      "imgProduit": "https://img.freepik.com/free-photo/cheerful-man-with-environmental-conservation-symbols_53876-65653.jpg?t=st=1729513608~exp=1729517208~hmac=516656d271183a0828727e1f276947128748f2c73332afec112a13d474ed2b6f&w=900",
+      "prixProduit": 50000,
+      "quantite": 2,
+      "sous_total": 100000
+    },
+    {
+      "id": "9c1c",
+      "produit": "5e8e",
+      "nomProduit": "Environnement day",
+      "imgProduit": "https://img.freepik.com/free-psd/vertical-poster-template-world-environment-day-celebration_23-2150373998.jpg?t=st=1729513498~exp=1729517098~hmac=6e01b9383ff8f8ac70f3398d60867095f98ea21e0d0b8aae78ff0591e0733d40&w=1060",
+      "prixProduit": 12355,
+      "quantite": 1,
+      "sous_total": 12355
+    },
+    {
+      "id": "43fe",
+      "produit": "8331",
+      "nomProduit": "Connaitre l'environnement",
+      "imgProduit": "https://img.freepik.com/free-photo/cheerful-man-with-environmental-conservation-symbols_53876-65653.jpg?t=st=1729513608~exp=1729517208~hmac=516656d271183a0828727e1f276947128748f2c73332afec112a13d474ed2b6f&w=900",
+      "prixProduit": 50000,
+      "quantite": 2,
+      "sous_total": 100000
+    },
+    {
+      "id": "3c33",
+      "produit": "5e8e",
+      "nomProduit": "Environnement day",
+      "imgProduit": "https://img.freepik.com/free-psd/vertical-poster-template-world-environment-day-celebration_23-2150373998.jpg?t=st=1729513498~exp=1729517098~hmac=6e01b9383ff8f8ac70f3398d60867095f98ea21e0d0b8aae78ff0591e0733d40&w=1060",
+      "prixProduit": 12355,
+      "quantite": 1,
+      "sous_total": 12355
+    },
+    {
+      "id": "3059",
+      "produit": "5e8e",
+      "nomProduit": "Environnement day",
+      "imgProduit": "https://img.freepik.com/free-psd/vertical-poster-template-world-environment-day-celebration_23-2150373998.jpg?t=st=1729513498~exp=1729517098~hmac=6e01b9383ff8f8ac70f3398d60867095f98ea21e0d0b8aae78ff0591e0733d40&w=1060",
+      "prixProduit": 12355,
+      "quantite": 1,
+      "sous_total": 12355
+    },
+    {
+      "id": "7faf",
+      "produit": "5e8e",
+      "nomProduit": "Environnement day",
+      "imgProduit": "https://img.freepik.com/free-psd/vertical-poster-template-world-environment-day-celebration_23-2150373998.jpg?t=st=1729513498~exp=1729517098~hmac=6e01b9383ff8f8ac70f3398d60867095f98ea21e0d0b8aae78ff0591e0733d40&w=1060",
+      "prixProduit": 12355,
+      "quantite": 1,
+      "sous_total": 12355
+    },
+    {
+      "id": "c37d",
+      "commande": "87c0",
+      "produit": "8331",
+      "nomProduit": "Connaitre l'environnement",
+      "imgProduit": "https://img.freepik.com/free-photo/cheerful-man-with-environmental-conservation-symbols_53876-65653.jpg?t=st=1729513608~exp=1729517208~hmac=516656d271183a0828727e1f276947128748f2c73332afec112a13d474ed2b6f&w=900",
+      "prixProduit": 50000,
+      "quantite": 2,
+      "sous_total": 100000
+    },
+    {
+      "id": "b3df",
+      "commande": "87c0",
+      "produit": "5e8e",
+      "nomProduit": "Environnement day",
+      "imgProduit": "https://img.freepik.com/free-psd/vertical-poster-template-world-environment-day-celebration_23-2150373998.jpg?t=st=1729513498~exp=1729517098~hmac=6e01b9383ff8f8ac70f3398d60867095f98ea21e0d0b8aae78ff0591e0733d40&w=1060",
+      "prixProduit": 12355,
+      "quantite": 1,
+      "sous_total": 12355
     }
   ]
 }

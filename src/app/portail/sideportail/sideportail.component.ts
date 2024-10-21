@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { InformeService } from '../../service/informe.service';
 import { CrudService } from '../../service/crud.service';
+import { PanierService } from '../../service/panier.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NotificationService } from '../../shared/notification';
 declare var $: any;
 
 @Component({
@@ -18,11 +21,20 @@ export class SideportailComponent implements OnInit {
   urlpost = '/produit';
   produit: any;
   loarding: boolean = false;
-  constructor(public informe: InformeService, public crud: CrudService) {}
+  public commandeForm!: FormGroup;
+
+  constructor(
+    public informe: InformeService,
+    public crud: CrudService,
+    public panierService: PanierService,
+    private formBuilder: FormBuilder,
+    public notifyservice: NotificationService
+  ) {}
 
   ngOnInit(): void {
     this.AutomatiseCaroussel();
     this.getproduit(this.urlpost);
+    this.initaddcommande();
   }
   AutomatiseCaroussel() {
     $(document).ready(function () {
@@ -40,5 +52,45 @@ export class SideportailComponent implements OnInit {
         this.loarding = true;
       }
     });
+  }
+
+  initaddcommande() {
+    this.commandeForm = this.formBuilder.group({
+      telephone: ['', Validators.required],
+      nom: ['', Validators.required],
+      prenom: ['', Validators.required],
+      adresse: ['', Validators.required],
+    });
+  }
+  ajoutPanier($produit: any) {
+    this.panierService.getproprio($produit);
+  }
+
+  commander() {
+    this.commandeForm.controls['nom'].setValue($('#nom').val());
+    this.commandeForm.controls['prenom'].setValue($('#prenom').val());
+    this.commandeForm.controls['telephone'].setValue($('#telephone').val());
+    this.commandeForm.controls['adresse'].setValue($('#adresse').val());
+    if (this.commandeForm.invalid) {
+      this.notifyservice.onError('Veuillez remplir tout les champs');
+    }
+    if (this.commandeForm.valid) {
+      this.panierService.commandeForm = this.commandeForm;
+      this.panierService.commander();
+    }
+  }
+
+  resetvalue() {
+    $('#nom').val('');
+    $('#prenom').val('');
+    $('#telephone').val('');
+    $('#adresse').val('');
+  }
+  retour() {
+    this.panierService?.showpanier('ok');
+  }
+  annuler() {
+    this.resetvalue();
+    this.panierService?.reset();
   }
 }
