@@ -53,6 +53,17 @@ export class CrudService {
     return axios.get(url);
     // return this.http.get(url, $request);
   }
+  login(hote: string, email: string, motDepasse: string) {
+    const url =
+      this.fullUrl +
+      hote +
+      '?mailUtilisateur=' +
+      `${email}` +
+      '&motDepasse=' +
+      `${motDepasse}`;
+    const $request = this.gettokenparams(localStorage.getItem('access_token'));
+    return axios.get(url);
+  }
   //Login
   setcurrentuser($data: any) {
     this.currentuser = $data;
@@ -71,13 +82,8 @@ export class CrudService {
 
   setlocalstorage($data: any) {
     localStorage.setItem('access_token', $data.access_token);
-    localStorage.setItem('prenom', $data.user.prenom);
-    localStorage.setItem('nom', $data.user.nom);
-    localStorage.setItem('sexe', $data.user.sexe);
-    localStorage.setItem('photo', $data.user.photo);
-    localStorage.setItem('iduser', $data.user.id_inscription);
-    localStorage.setItem('type_compte', $data.user.type_compte);
-    localStorage.setItem('is_admin', $data.user.is_admin);
+    localStorage.setItem('prenom', $data.prenom);
+    localStorage.setItem('nom', $data.nom);
   }
 
   gettokenparams($token: any) {
@@ -89,12 +95,12 @@ export class CrudService {
     return requestOptions;
   }
 
-  getcurrentday() {
-    var mycurrentdate = new Date();
-    var currentmonth = mycurrentdate.getMonth() + 1;
-    var currentyear = mycurrentdate.getFullYear();
-    var currentday = mycurrentdate.getDate();
-    var currentdate = currentyear + '-' + currentmonth + '-' + currentday;
-    return currentdate;
+  getcurrentuser() {
+    var $user = {
+      nom: localStorage.getItem('nom'),
+      prenom: localStorage.getItem('prenom'),
+    };
+    return $user;
+    //return this.currentuser;
   }
 }

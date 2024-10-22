@@ -5,9 +5,14 @@ import { MyauthGuard } from './service/myauth.guard';
 const routes: Routes = [
   {
     path: 'admin',
-    // canActivate: [MyauthGuard],
+    canActivate: [MyauthGuard],
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
+  },
+  {
+    path: 'users',
+    loadChildren: () =>
+      import('./usersgest/usersgest.module').then((m) => m.UsersgestModule),
   },
   {
     path: 'portail',

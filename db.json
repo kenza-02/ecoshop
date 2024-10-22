@@ -6,7 +6,8 @@
       "mailUtilisateur": "ahmedmballo7@gmail.com",
       "prenom": "Mouhamadou",
       "nom": "MBALLO",
-      "motDepasse": "12345678"
+      "motDepasse": "12345678",
+      "access_token": "codingisalife"
     }
   ],
   "produit": [
