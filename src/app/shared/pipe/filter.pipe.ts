@@ -18,6 +18,11 @@ export class FilterPipe implements PipeTransform {
           return it.nom.toLocaleLowerCase().includes(searchText);
         });
       }
+      if ($name == 'reference') {
+        return items.filter((it) => {
+          return it.id.toLocaleLowerCase().includes(searchText);
+        });
+      }
     }
     if (!$name) {
       return items.filter((it) => {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppTitleService } from '../../shared/services';
 
 @Component({
   selector: 'app-produit',
@@ -19,7 +20,9 @@ export class ProduitComponent implements OnInit {
     },
   ];
   currentname: any;
-  constructor() {}
+  constructor(private title: AppTitleService) {
+    this.title.setTitle('Gestion des produits');
+  }
   ngOnInit(): void {
     this.currentname = this.mymenu[0].action;
   }

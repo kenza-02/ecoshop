@@ -100,6 +100,8 @@ export class PanierService {
       nom: this.commandeForm.value.nom,
       telephone: this.commandeForm.value.telephone,
       adresse: this.commandeForm.value.adresse,
+      statut: 'En attente',
+      date: new Date(),
     };
     //store commande
     this.crud

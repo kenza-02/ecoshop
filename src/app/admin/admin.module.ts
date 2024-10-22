@@ -7,6 +7,8 @@ import { ProduitComponent } from './produit/produit.component';
 import { CommandeComponent } from './commande/commande.component';
 import { AjoutproduitComponent } from './produit/ajoutproduit/ajoutproduit.component';
 import { ListproduitComponent } from './produit/listproduit/listproduit.component';
+import { ListcommandeComponent } from './commande/listcommande/listcommande.component';
+import { FactureComponent } from './commande/facture/facture.component';
 
 const appRoute: Routes = [
   {
@@ -20,7 +22,7 @@ const appRoute: Routes = [
 ];
 
 @NgModule({
-  declarations: [SidebarComponent, ProduitComponent, CommandeComponent, AjoutproduitComponent, ListproduitComponent],
+  declarations: [SidebarComponent, ProduitComponent, CommandeComponent, AjoutproduitComponent, ListproduitComponent, ListcommandeComponent, FactureComponent],
   imports: [CommonModule, SharedModule, RouterModule.forChild(appRoute)],
 })
 export class AdminModule {}

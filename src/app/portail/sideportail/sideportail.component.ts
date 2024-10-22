@@ -4,6 +4,7 @@ import { CrudService } from '../../service/crud.service';
 import { PanierService } from '../../service/panier.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NotificationService } from '../../shared/notification';
+import { AppTitleService } from '../../shared/services';
 declare var $: any;
 
 @Component({
@@ -28,8 +29,11 @@ export class SideportailComponent implements OnInit {
     public crud: CrudService,
     public panierService: PanierService,
     private formBuilder: FormBuilder,
-    public notifyservice: NotificationService
-  ) {}
+    public notifyservice: NotificationService,
+    private title: AppTitleService
+  ) {
+    this.title.setTitle('Accueil');
+  }
 
   ngOnInit(): void {
     this.AutomatiseCaroussel();

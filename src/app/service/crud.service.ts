@@ -40,6 +40,7 @@ export class CrudService {
     return axios.get(url);
     //return this.http.get(url, $request);
   }
+
   getById(hote: string, $id: any) {
     const $request = this.gettokenparams(localStorage.getItem('access_token'));
     const url = this.fullUrl + hote + $id;
@@ -47,9 +48,10 @@ export class CrudService {
   }
   //search name
   search(hote: string, formData: string) {
-    const url = this.fullUrl + hote + formData;
+    const url = this.fullUrl + hote + '=' + `${formData}`;
     const $request = this.gettokenparams(localStorage.getItem('access_token'));
-    return this.http.get(url, $request);
+    return axios.get(url);
+    // return this.http.get(url, $request);
   }
   //Login
   setcurrentuser($data: any) {
