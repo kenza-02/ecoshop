@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../../environments/environment';
 import { CrudService } from '../../service/crud.service';
 import { InformeService } from '../../service/informe.service';
 
@@ -30,10 +29,20 @@ export class SidebarComponent implements OnInit {
     public authService: CrudService,
     public myinforme: InformeService
   ) {}
+  statmenu: any;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.statmenu = 'open';
+  }
 
   logout() {
     this.authService.doLogout();
+  }
+  toggelSidebar() {
+    if (this.statmenu == 'open') {
+      this.statmenu = 'close';
+    } else {
+      this.statmenu = 'open';
+    }
   }
 }
