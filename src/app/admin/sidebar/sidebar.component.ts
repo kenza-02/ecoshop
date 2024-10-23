@@ -20,6 +20,11 @@ export class SidebarComponent implements OnInit {
       url: 'commande',
       icone: 'fad fa-bags-shopping bg-gray-100 tx-primary tx-20',
     },
+    {
+      nom: 'Contact',
+      url: 'contact',
+      icone: 'fad fa-address-book bg-gray-100 tx-primary tx-20',
+    },
   ];
   constructor(
     public authService: CrudService,

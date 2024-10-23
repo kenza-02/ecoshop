@@ -7,9 +7,15 @@ import { NotificationModule } from './notification';
 import { LoardingComponent } from './loarding/loarding.component';
 import { NoDataComponent } from './no-data/no-data.component';
 import { FilterPipe } from './pipe/filter.pipe';
+import { AttenteactionComponent } from './attenteaction/attenteaction.component';
 
 @NgModule({
-  declarations: [LoardingComponent, NoDataComponent, FilterPipe],
+  declarations: [
+    LoardingComponent,
+    NoDataComponent,
+    FilterPipe,
+    AttenteactionComponent,
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -27,6 +33,7 @@ import { FilterPipe } from './pipe/filter.pipe';
     FilterPipe,
     LoardingComponent,
     NoDataComponent,
+    AttenteactionComponent,
   ],
 })
 export class SharedModule {}
