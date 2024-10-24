@@ -1,27 +1,80 @@
 # Ecoshop
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+Ce projet a été realiser avec Angular version 17.3.0.
 
-## Development server
+# Cadre du projet
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Il s'agit d'un projet de test de connaissance avec `Sayna`, qui consiste a développé une application e-commerce appelé ecoShop. Développer par `Mouhamadou MBALLO`
 
-## Code scaffolding
+# Téchnologies utilisées
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Pour la réalisation de ce projet, nous avons utilisés les technologies suivantes:
 
-## Build
+## Angular
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Angular est un framework JavaScript, orienté frontend. Dans notre cas, nous avons utilisé la version 17. Avec notamment l'utilisation du routage, du lazy loarding, des services, des pipes ...
 
-## Running unit tests
+## Json server
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+C'est une base de données local , qui nous a permis de simuler le backend
 
-## Running end-to-end tests
+## Axios
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Comme on n'a pas un backend spécifique, nous avons utilisés Axios, pour faire des requetes
 
-## Further help
+# Fonctionnalités
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Parmis les fonctionnalités, nous pouvons citer :
+
+## Partie admin
+
+Avant d'y accéder il faudrait se connecter d'abord
+
+### Produit
+
+C'est là où on gère les produits avec les opérations de CRUD
+
+### Commande
+
+C'est pour la gestion des commandes et des factures
+
+### Contact
+
+Ca nous permet de voir les messages reçu
+
+## Partie accueil
+
+### Liste des produits
+
+On voit la liste des produits et faire la commande
+
+### Panier
+
+C'est ici, que nous avions implémenter le panier de l'utilisateur
+
+## Authentification
+
+Afin de gerer nos produits et nos commandes, nous devrions nous connecter
+`email : ahmedmballo7@gmail.com`, `mot de passe: 12345678`
+
+## Contact
+
+C'est la page de contact, au cas où l'utilisateur souhaite nous contacter
+
+# Installation et lancement de l'application
+
+## clonage du projet
+
+Faites un `git clone https://github.com/kenza-02/ecoshop.git`
+
+## Installation des dépendances
+
+Faites un `npm install` pour installer les dépendances
+
+## Lancer l'application
+
+Faites un `ng serve` pour lancer l'application, puis naviguer sur `http://localhost:4200/`
+
+## Lancer le server
+
+Faites un `json-server --watch db.json` pour lancer le serveur
