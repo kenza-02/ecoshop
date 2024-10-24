@@ -35,8 +35,8 @@
               <div
                 [ngClass]="{
                   'mail-item pointers p-1': true,
-                  'bg-light2': item?.id == currentmessage?.id,
-                  'bg-white': item?.id != currentmessage?.id
+                  'bg-light2': item.id == currentmessage.id,
+                  'bg-white': item.id != currentmessage.id
                 }"
                 *ngFor="let item of message"
                 (click)="showmessage(item)"
@@ -46,13 +46,13 @@
                 </div>
                 <div class="col-xs-6 details ml-2">
                   <span class="name text-muted taille4"
-                    >{{ item?.prenom }} {{ item?.nom }}</span
+                    >{{ item.prenom }} {{ item.nom }}</span
                   >
-                  <p class="m-0 taillebody2">{{ item?.message }}</p>
+                  <p class="m-0 taillebody2">{{ item.message }}</p>
                 </div>
                 <div class="col-xs-3 date">
                   <span class="text-muted">{{
-                    item?.date | date : "medium"
+                    item.date | date : "medium"
                   }}</span>
                 </div>
               </div>
@@ -77,12 +77,12 @@
                     </div>
                     <div class="col-xs-12">
                       <p class="m-0">
-                        {{ currentmessage?.prenom }} {{ currentmessage?.nom }}
+                        {{ currentmessage.prenom }} {{ currentmessage.nom }}
                       </p>
                       <p class="text-12 text-muted">
-                        {{ currentmessage?.date | date : "medium" }}
+                        {{ currentmessage.date | date : "medium" }}
                         <span class="badge badge-info ml-5">{{
-                          currentmessage?.email
+                          currentmessage.email
                         }}</span>
                       </p>
                     </div>
@@ -95,7 +95,7 @@
                         class="tx-facebook tx-14 bg-gray-300 py-2"
                         style="text-align: justify; vertical-align: middle"
                       >
-                        <span class="ml-2">{{ currentmessage?.message }}</span>
+                        <span class="ml-2">{{ currentmessage.message }}</span>
                       </p>
                     </div>
                   </div>

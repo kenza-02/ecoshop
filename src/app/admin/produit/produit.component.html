@@ -17,18 +17,18 @@
           <div
             class="d-flex align-items-center justify-content-between pb-3 pt-3 bd-b"
           >
-            <a (click)="setName(item?.action)" class="nav-link3 tx-primary"
-              ><i [class]="item?.icone"></i> {{ item?.nom }}</a
+            <a (click)="setName(item.action)" class="nav-link3 tx-primary"
+              ><i [class]="item.icone"></i> {{ item.nom }}</a
             >
           </div>
         </ng-container>
       </nav>
     </div>
     <div class="col-md-10 bg-light py-4">
-      <ng-container *ngIf="currentname == mymenu[0]?.action">
+      <ng-container *ngIf="currentname == mymenu[0].action">
         <app-ajoutproduit></app-ajoutproduit>
       </ng-container>
-      <ng-container *ngIf="currentname == mymenu[1]?.action">
+      <ng-container *ngIf="currentname == mymenu[1].action">
         <app-listproduit></app-listproduit>
       </ng-container>
     </div>

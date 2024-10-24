@@ -36,11 +36,11 @@
             <div class="header-part-right float-right p-2">
               <button
                 class="btn btn-facebook float-right"
-                (click)="panierService?.showpanier()"
+                (click)="panierService.showpanier()"
               >
                 Panier
                 <span class="badge" style="padding: 1px !important">{{
-                  panierService?.valeurproprio?.length
+                  panierService.valeurproprio.length
                 }}</span>
                 <i
                   class="fal fa-shopping-bag tx-white"
@@ -111,12 +111,12 @@
               >
                 <img
                   class="d-block w-100 size-slider-gallerie"
-                  [src]="'./assets/img/' + item?.url"
+                  [src]="'./assets/img/' + item.url"
                   alt="First slide"
                 />
                 <div class="carousel-caption">
                   <h3 class="slider-style">
-                    {{ item?.name }}
+                    {{ item.name }}
                   </h3>
                 </div>
               </div>
@@ -151,7 +151,7 @@
     </div>
   </div>
   <div class="col-md-12 p-0 mt-2">
-    <ng-container *ngIf="!panierService?.affichepanier">
+    <ng-container *ngIf="!panierService.affichepanier">
       <div class="row justify-content-between mg-0 pd-0 pt-3 pb-3">
         <div class="col-lg-12">
           <h5 class="tx-ether tx-20 tx-bolder">
@@ -174,19 +174,19 @@
                 <div class="card-profile-1 mb-4">
                   <div class="text-center">
                     <div class="avatar9 box-shadow-2 mb-3">
-                      <img [src]="item?.image" alt="Second slide" />
+                      <img [src]="item.image" alt="Second slide" />
                     </div>
                   </div>
                 </div>
                 <ul class="list-group list-group-flush tx-center">
                   <li class="list-group-item p-0 text-primary tx-20">
                     <div class="tailledesc2">
-                      {{ item?.nom }}
+                      {{ item.nom }}
                     </div>
                   </li>
                   <li class="list-group-item p-0 tx-bolder tx-warning">
                     <div class="tailledesc2">
-                      {{ item?.description }}
+                      {{ item.description }}
                     </div>
                   </li>
                 </ul>
@@ -196,7 +196,7 @@
                       class="fal fa-wallet text-primary mr-2 bg-gray-100 btn-primary"
                       style="padding: 10px; border-radius: 50%"
                     ></i>
-                    {{ item?.prix }} FCFA
+                    {{ item.prix }} FCFA
                   </span>
                 </div>
                 <div class="card-body tx-center">
@@ -229,7 +229,7 @@
         <br />
       </div>
     </ng-container>
-    <div class="col-md-12 p-0" *ngIf="panierService?.affichepanier">
+    <div class="col-md-12 p-0" *ngIf="panierService.affichepanier">
       <div class="col-md-12 pt-4">
         <div class="row row-xs clearfix mg-0 pd-0">
           <div class="col-md-12 p-0">
@@ -273,24 +273,24 @@
                           </tr>
                           <tr
                             *ngFor="
-                              let item of panierService?.valeurproprio;
+                              let item of panierService.valeurproprio;
                               let i = index
                             "
                           >
                             <td>
-                              <img [src]="item?.image" height="40" width="40" />
+                              <img [src]="item.image" height="40" width="40" />
                             </td>
                             <td class="bd-r bd-2 bd-white">
                               <div>
                                 <p class="mg-0 tx-primary mt-1 taillebody">
-                                  {{ item?.nom }}
+                                  {{ item.nom }}
                                 </p>
                               </div>
                             </td>
                             <td class="tx-left">
                               <div>
                                 <p class="mg-0 tx-primary mt-1">
-                                  {{ item?.prix }}
+                                  {{ item.prix }}
                                 </p>
                               </div>
                             </td>
@@ -299,18 +299,16 @@
                                 <p class="mg-0 tx-primary mt-1">
                                   <a
                                     (click)="
-                                      panierService?.actionbtn('moins', i)
+                                      panierService.actionbtn('moins', i)
                                     "
                                     ><i
                                       class="fal fa-minus bgtera"
                                       style="padding: 6px; border-radius: 50%"
                                     ></i
                                   ></a>
-                                  {{ item?.quantitedem }}
+                                  {{ item.quantitedem }}
                                   <a
-                                    (click)="
-                                      panierService?.actionbtn('plus', i)
-                                    "
+                                    (click)="panierService.actionbtn('plus', i)"
                                     ><i
                                       class="fal fa-plus bgtera"
                                       style="padding: 6px; border-radius: 50%"
@@ -321,12 +319,12 @@
                             </td>
 
                             <td class="tx-left">
-                              {{ item?.soustotal }}
+                              {{ item.soustotal }}
                             </td>
                             <td class="tx-left">
                               <span
                                 class="pl-2 float-right pointers"
-                                (click)="panierService?.removevalue(i)"
+                                (click)="panierService.removevalue(i)"
                               >
                                 <i
                                   class="fal fa-times tx-danger tx-12 bgtera"
@@ -346,7 +344,7 @@
                             <td class="tx-left">
                               <div>
                                 <p class="mg-0 tx-primary tx-bold">
-                                  {{ panierService?.valeurproprio?.length }}
+                                  {{ panierService.valeurproprio.length }}
                                 </p>
                               </div>
                             </td>
@@ -362,7 +360,7 @@
                             <td class="tx-left">
                               <div>
                                 <p class="mg-0 tx-facebook tx-bold">
-                                  {{ panierService?.total }}
+                                  {{ panierService.total }}
                                 </p>
                               </div>
                             </td>
@@ -435,16 +433,16 @@
                     <button
                       type="button"
                       class="btn btn-secondary mr-2"
-                      [disabled]="panierService?.statut == true"
+                      [disabled]="panierService.statut == true"
                       (click)="annuler()"
-                      *ngIf="panierService?.valeurproprio?.length > 0"
+                      *ngIf="panierService.valeurproprio.length > 0"
                     >
                       Annuler</button
                     >&nbsp;
                     <button
                       type="button"
                       class="btn btn-secondary mr-2"
-                      [disabled]="panierService?.statut == true"
+                      [disabled]="panierService.statut == true"
                       (click)="retour()"
                     >
                       Retour</button
@@ -452,12 +450,12 @@
                     <button
                       type="button"
                       class="btn btn-primary"
-                      *ngIf="panierService?.valeurproprio?.length > 0"
-                      [disabled]="panierService?.statut == true"
+                      *ngIf="panierService.valeurproprio.length > 0"
+                      [disabled]="panierService.statut == true"
                       (click)="commander()"
                     >
                       <i
-                        *ngIf="panierService?.statut == true"
+                        *ngIf="panierService.statut == true"
                         class="fas fa-spinner fa-spin"
                       ></i>
                       Commander

@@ -91,10 +91,10 @@ export class SideportailComponent implements OnInit {
     $('#adresse').val('');
   }
   retour() {
-    this.panierService?.showpanier('ok');
+    this.panierService.showpanier('ok');
   }
   annuler() {
     this.resetvalue();
-    this.panierService?.reset();
+    this.panierService.reset();
   }
 }

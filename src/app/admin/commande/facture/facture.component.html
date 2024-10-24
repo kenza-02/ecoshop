@@ -15,15 +15,15 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of facture; let i = index">
-            <th scope="row">{{ item?.commande }}</th>
-            <td>{{ item?.dateCommande | date : "mediumDate" }}</td>
-            <td>{{ item?.montant_a_payer }}</td>
-            <td>{{ item?.montant_recu }}</td>
-            <td>{{ item?.montant_restant }}</td>
-            <td>{{ item?.date | date : "mediumDate" }}</td>
+            <th scope="row">{{ item.commande }}</th>
+            <td>{{ item.dateCommande | date : "mediumDate" }}</td>
+            <td>{{ item.montant_a_payer }}</td>
+            <td>{{ item.montant_recu }}</td>
+            <td>{{ item.montant_restant }}</td>
+            <td>{{ item.date | date : "mediumDate" }}</td>
             <td>
               <a
-                (click)="showdetail(item?.commande, i)"
+                (click)="showdetail(item.commande, i)"
                 class="text-facebook mr-2"
               >
                 <i class="nav-icon i-Eye font-weight-bold tx-20"></i>
@@ -75,22 +75,22 @@
             <div class="col-md-5">
               <div class="col-md-12">
                 <p>
-                  {{ currentfacture?.prenomClient }}
-                  {{ currentfacture?.nomClient }}
+                  {{ currentfacture.prenomClient }}
+                  {{ currentfacture.nomClient }}
                 </p>
               </div>
               <div class="col-md-12">
-                <p>{{ currentfacture?.telClient }}</p>
+                <p>{{ currentfacture.telClient }}</p>
               </div>
               <div class="col-md-12">
                 <p>
                   <i class="fal fa-city tx-facebook"></i>
-                  {{ currentfacture?.adresseClient }}
+                  {{ currentfacture.adresseClient }}
                 </p>
               </div>
             </div>
             <div class="col-md-3">
-              <p class="tx-facebook">Facture N° {{ currentfacture?.id }}</p>
+              <p class="tx-facebook">Facture N° {{ currentfacture.id }}</p>
             </div>
             <div class="col-md-4">
               <div class="col-md-12">
@@ -125,35 +125,31 @@
                       </tr>
                       <tr *ngFor="let item of detailfacture; let i = index">
                         <td>
-                          <img
-                            [src]="item?.imgProduit"
-                            height="40"
-                            width="40"
-                          />
+                          <img [src]="item.imgProduit" height="40" width="40" />
                         </td>
                         <td class="bd-r bd-2 bd-white">
                           <div>
                             <p class="mg-0 tx-primary mt-1 taillebody">
-                              {{ item?.nomProduit }}
+                              {{ item.nomProduit }}
                             </p>
                           </div>
                         </td>
                         <td class="tx-left">
                           <div>
                             <p class="mg-0 tx-primary mt-1">
-                              {{ item?.prixProduit }}
+                              {{ item.prixProduit }}
                             </p>
                           </div>
                         </td>
                         <td class="tx-center">
                           <div>
                             <p class="mg-0 tx-primary mt-1">
-                              {{ item?.quantite }}
+                              {{ item.quantite }}
                             </p>
                           </div>
                         </td>
                         <td class="tx-center">
-                          {{ item?.sous_total }}
+                          {{ item.sous_total }}
                         </td>
                       </tr>
                     </tbody>
@@ -177,7 +173,7 @@
                                   <div class="">
                                     <label class="text-left">
                                       <span>{{
-                                        currentfacture?.montant_recu
+                                        currentfacture.montant_recu
                                       }}</span>
                                     </label>
                                   </div>
@@ -193,7 +189,7 @@
                                   <div class="">
                                     <label class="text-left">
                                       <span>{{
-                                        currentfacture?.montant_restant
+                                        currentfacture.montant_restant
                                       }}</span>
                                     </label>
                                   </div>
@@ -206,7 +202,7 @@
                               Total à payer:
                             </th>
                             <td class="font-weight-700 text-16">
-                              {{ currentfacture?.montant_a_payer }}
+                              {{ currentfacture.montant_a_payer }}
                             </td>
                           </tr>
                         </tbody>
@@ -217,7 +213,7 @@
               </div>
             </div>
             <div class="col-md-12 text-right py-4">
-              Payé le, {{ currentfacture?.date | date : "mediumDate" }}
+              Payé le, {{ currentfacture.date | date : "mediumDate" }}
             </div>
           </div>
         </div>

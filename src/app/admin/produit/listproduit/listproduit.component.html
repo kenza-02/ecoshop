@@ -35,19 +35,19 @@
               <div class="card-profile-1 mb-4">
                 <div class="text-center">
                   <div class="avatar9 box-shadow-2 mb-3">
-                    <img [src]="item?.image" alt="Second slide" />
+                    <img [src]="item.image" alt="Second slide" />
                   </div>
                 </div>
               </div>
               <ul class="list-group list-group-flush tx-center">
                 <li class="list-group-item p-0 text-primary tx-20">
                   <div class="tailledesc2">
-                    {{ item?.nom }}
+                    {{ item.nom }}
                   </div>
                 </li>
                 <li class="list-group-item p-0 tx-bolder tx-warning">
                   <div class="tailledesc2">
-                    {{ item?.description }}
+                    {{ item.description }}
                   </div>
                 </li>
               </ul>
@@ -57,7 +57,7 @@
                     class="fal fa-wallet text-primary mr-2 bg-gray-100 btn-primary"
                     style="padding: 10px; border-radius: 50%"
                   ></i>
-                  {{ item?.prix }} FCFA
+                  {{ item.prix }} FCFA
                 </span>
               </div>
               <div class="tx-center">
@@ -239,7 +239,7 @@
           <div class="col-lg-12">
             <div class="image2">
               <span>
-                <img [src]="detailproduit?.image" />
+                <img [src]="detailproduit.image" />
               </span>
             </div>
           </div>
@@ -257,7 +257,7 @@
                   <td class="width40">
                     <div class="from">
                       <a class="tx-gray-600 tx-14">
-                        {{ detailproduit?.nom }}
+                        {{ detailproduit.nom }}
                       </a>
                     </div>
                   </td>
@@ -270,9 +270,7 @@
                   </td>
                   <td class="width40">
                     <div class="from">
-                      <a class="tx-gray-600 tx-14"
-                        >{{ detailproduit?.prix }}
-                      </a>
+                      <a class="tx-gray-600 tx-14">{{ detailproduit.prix }} </a>
                     </div>
                   </td>
                 </tr>
@@ -281,7 +279,7 @@
           </div>
         </div>
         <div class="col-md-12 mt-2 bg-white">
-          <p class="mb-0 tx-12 p-4">{{ detailproduit?.description }}</p>
+          <p class="mb-0 tx-12 p-4">{{ detailproduit.description }}</p>
         </div>
       </div>
       <div class="modal-footer">

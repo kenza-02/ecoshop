@@ -62,12 +62,12 @@
         <ul class="navigation-left">
           <ng-container *ngFor="let item of mymenu">
             <li class="nav-item" data-item="dashboard">
-              <a class="nav-item-hold" [routerLink]="item?.url">
+              <a class="nav-item-hold" [routerLink]="item.url">
                 <i
-                  [class]="item?.icone"
+                  [class]="item.icone"
                   style="padding: 6px; border-radius: 50%"
                 ></i>
-                <span class="nav-text">{{ item?.nom }}</span>
+                <span class="nav-text">{{ item.nom }}</span>
               </a>
               <div class="triangle"></div>
             </li>

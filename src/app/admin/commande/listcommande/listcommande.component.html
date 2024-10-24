@@ -44,21 +44,21 @@
                 let i = index
               "
             >
-              <th scope="row">{{ item?.id }}</th>
-              <td>{{ item?.prenom }} {{ item?.nom }}</td>
-              <td>{{ item?.nbcommande }}</td>
+              <th scope="row">{{ item.id }}</th>
+              <td>{{ item.prenom }} {{ item.nom }}</td>
+              <td>{{ item.nbcommande }}</td>
               <td>
-                {{ item?.total }}
+                {{ item.total }}
               </td>
-              <td>{{ item?.date | date : "mediumDate" }}</td>
+              <td>{{ item.date | date : "mediumDate" }}</td>
               <td>
                 <span
                   [class]="{
                     badge: true,
-                    'badge-success': typestatut[1] == item?.statut,
-                    'badge-info': typestatut[0] == item?.statut
+                    'badge-success': typestatut[1] == item.statut,
+                    'badge-info': typestatut[0] == item.statut
                   }"
-                  >{{ item?.statut }}</span
+                  >{{ item.statut }}</span
                 >
               </td>
               <td>
@@ -85,7 +85,7 @@
                       <span class="">
                         <i class="fal fa-eye tx-echos tx-20"></i>
                       </span>
-                      {{ currentcommande?.id }}
+                      {{ currentcommande.id }}
                     </a>
                     <div class="triangle"></div>
                   </li>
@@ -136,35 +136,31 @@
                       </tr>
                       <tr *ngFor="let item of detailpanier; let i = index">
                         <td>
-                          <img
-                            [src]="item?.imgProduit"
-                            height="40"
-                            width="40"
-                          />
+                          <img [src]="item.imgProduit" height="40" width="40" />
                         </td>
                         <td class="bd-r bd-2 bd-white">
                           <div>
                             <p class="mg-0 tx-primary mt-1 taillebody">
-                              {{ item?.nomProduit }}
+                              {{ item.nomProduit }}
                             </p>
                           </div>
                         </td>
                         <td class="tx-left">
                           <div>
                             <p class="mg-0 tx-primary mt-1">
-                              {{ item?.prixProduit }}
+                              {{ item.prixProduit }}
                             </p>
                           </div>
                         </td>
                         <td class="tx-center">
                           <div>
                             <p class="mg-0 tx-primary mt-1">
-                              {{ item?.quantite }}
+                              {{ item.quantite }}
                             </p>
                           </div>
                         </td>
                         <td class="tx-center">
-                          {{ item?.sous_total }}
+                          {{ item.sous_total }}
                         </td>
                       </tr>
                     </tbody>
@@ -187,7 +183,7 @@
                                 <li>
                                   <div class="">
                                     <label class="text-left">
-                                      <span>{{ detailpanier?.length }}</span>
+                                      <span>{{ detailpanier.length }}</span>
                                     </label>
                                   </div>
                                 </li>
@@ -199,7 +195,7 @@
                               Total :
                             </th>
                             <td class="font-weight-700 text-16 tx-left">
-                              {{ currentcommande?.total }}
+                              {{ currentcommande.total }}
                             </td>
                           </tr>
                           <tr>
@@ -211,12 +207,12 @@
                                 [class]="{
                                   badge: true,
                                   'badge-success':
-                                    typestatut[1] == currentcommande?.statut,
+                                    typestatut[1] == currentcommande.statut,
                                   'badge-info':
-                                    typestatut[0] == currentcommande?.statut
+                                    typestatut[0] == currentcommande.statut
                                 }"
                               >
-                                {{ currentcommande?.statut }}
+                                {{ currentcommande.statut }}
                               </span>
                             </td>
                           </tr>
@@ -245,7 +241,7 @@
                           class="form-control"
                           id="inputtext11"
                           disabled
-                          [value]="currentcommande?.prenom"
+                          [value]="currentcommande.prenom"
                         />
                       </div>
                       <div class="form-group col-md-12">
@@ -257,7 +253,7 @@
                           class="form-control"
                           id="inputEmail12"
                           disabled
-                          [value]="currentcommande?.nom"
+                          [value]="currentcommande.nom"
                         />
                       </div>
                     </div>
@@ -274,7 +270,7 @@
                           class="form-control"
                           id="inputtext16"
                           disabled
-                          [value]="currentcommande?.telephone"
+                          [value]="currentcommande.telephone"
                         />
                       </div>
                     </div>
@@ -292,7 +288,7 @@
                             class="form-control"
                             id="inputEmail15"
                             disabled
-                            [value]="currentcommande?.adresse"
+                            [value]="currentcommande.adresse"
                           />
                         </div>
                       </div>
@@ -304,7 +300,7 @@
                 <div class="row text-right">
                   <div class="col-lg-12">
                     <ng-container
-                      *ngIf="typestatut[0] == currentcommande?.statut"
+                      *ngIf="typestatut[0] == currentcommande.statut"
                     >
                       <button
                         type="button"
@@ -334,8 +330,8 @@
                       type="button"
                       class="btn btn-facebook m-1"
                       *ngIf="
-                        typestatut[1] == currentcommande?.statut &&
-                        !currentcommande?.facture
+                        typestatut[1] == currentcommande.statut &&
+                        !currentcommande.facture
                       "
                       data-toggle="modal"
                       href="#factureModal"
@@ -396,7 +392,7 @@
                       min="1"
                       class="form-control no-radius"
                       disabled
-                      [value]="currentcommande?.total"
+                      [value]="currentcommande.total"
                     />
                   </div>
                 </div>
