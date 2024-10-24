@@ -1,0 +1,113 @@
+<div class="col-md-12">
+  <div class="row justify-content-between mg-0 pd-0">
+    <div class="col-lg-12">
+      <h5 class="tx-ether tx-20 tx-bolder">
+        <i
+          class="fad fa-address-book bg-white tx-primary tx-30"
+          style="padding: 6px; border-radius: 50%"
+        ></i>
+        Géstion des contacts
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 bd-r bd-light">
+      <div class="col-md-12" *ngIf="!message">
+        <div class="col-md-12 text-center noData">
+          <app-loarding></app-loarding>
+        </div>
+      </div>
+      <!-- NO DATA -->
+      <div *ngIf="loardmessage == false && message" class="col-md-12">
+        <br /><br /><br /><br />
+        <div class="col-md-12 text-center noData">
+          <app-no-data></app-no-data>
+        </div>
+        <br /><br /><br /><br />
+      </div>
+      <div class="col-md-12 p-0" *ngIf="loardmessage == true && message">
+        <div
+          class="inbox-main-sidebar-container p-0 mt-2 contentstmessage scroll-11"
+          style="overflow-y: auto !important"
+        >
+          <div class="inbox-secondary-sidebar-container">
+            <div class="inbox-secondary-sidebar rtl-ps-none">
+              <div
+                [ngClass]="{
+                  'mail-item pointers p-1': true,
+                  'bg-light2': item?.id == currentmessage?.id,
+                  'bg-white': item?.id != currentmessage?.id
+                }"
+                *ngFor="let item of message"
+                (click)="showmessage(item)"
+              >
+                <div class="avatar">
+                  <img class="myavatar" src="./assets/img/avatarH.png" />
+                </div>
+                <div class="col-xs-6 details ml-2">
+                  <span class="name text-muted taille4"
+                    >{{ item?.prenom }} {{ item?.nom }}</span
+                  >
+                  <p class="m-0 taillebody2">{{ item?.message }}</p>
+                </div>
+                <div class="col-xs-3 date">
+                  <span class="text-muted">{{
+                    item?.date | date : "medium"
+                  }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 bd-l bd-white">
+      <div class="col-md-12 p-0" *ngIf="affichereponse">
+        <div class="inbox-main-sidebar-container bg-light2 p-0">
+          <div class="inbox-main-content bg-white">
+            <div class="inbox-secondary-sidebar-container box-shadow-1">
+              <div
+                class="inbox-secondary-sidebar-content position-relative"
+                style="min-height: 500px"
+              >
+                <div class="inbox-topbar box-shadow-1 rtl-ps-none pl-3">
+                  <div class="d-flex">
+                    <div class="mr-2 pt-2" style="width: 36px">
+                      <img class="myavatar" src="./assets/img/avatarH.png" />
+                    </div>
+                    <div class="col-xs-12">
+                      <p class="m-0">
+                        {{ currentmessage?.prenom }} {{ currentmessage?.nom }}
+                      </p>
+                      <p class="text-12 text-muted">
+                        {{ currentmessage?.date | date : "medium" }}
+                        <span class="badge badge-info ml-5">{{
+                          currentmessage?.email
+                        }}</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 contentstcommande2 scroll-11">
+                  <div class="inbox-details rtl-ps-none">
+                    <div>
+                      <p
+                        class="tx-facebook tx-14 bg-gray-300 py-2"
+                        style="text-align: justify; vertical-align: middle"
+                      >
+                        <span class="ml-2">{{ currentmessage?.message }}</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 pt-2" *ngIf="!affichereponse">
+        <app-attenteaction></app-attenteaction>
+      </div>
+    </div>
+  </div>
+</div>

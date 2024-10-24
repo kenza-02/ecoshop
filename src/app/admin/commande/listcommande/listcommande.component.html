@@ -1,0 +1,498 @@
+<div class="col-md-12">
+  <div class="row row-xs justify-content-between mg-0 pd-0 pt-1 pb-2">
+    <div class="col-lg-5">
+      <div class="form-group mg-t-5 mg-b-5">
+        <div class="input-group border-0" style="width: 300px">
+          <span class="input-group-append"></span>
+          <input
+            type="text"
+            class="form-control pd-y-10 tx-white"
+            [(ngModel)]="searchcomma"
+            placeholder="Recherches par reference..."
+            style="
+              border-radius: 50px 50px 50px 50px;
+              background-image: linear-gradient(to right, #f3f4f5, #f3f4f5);
+            "
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4"></div>
+    <div class="3"></div>
+  </div>
+</div>
+<div class="col-md-12 p-0" *ngIf="loardcommande == true && commande">
+  <div class="col-md-12 p-0 bg-white" *ngIf="!affichedetail">
+    <div class="text-left mt-2">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Reference</th>
+              <th scope="col">Client</th>
+              <th scope="col">Nombre de produit</th>
+              <th scope="col">Total</th>
+              <th scope="col">Date</th>
+              <th scope="col">Statut</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let item of commande | appFilter : searchcomma : 'reference';
+                let i = index
+              "
+            >
+              <th scope="row">{{ item?.id }}</th>
+              <td>{{ item?.prenom }} {{ item?.nom }}</td>
+              <td>{{ item?.nbcommande }}</td>
+              <td>
+                {{ item?.total }}
+              </td>
+              <td>{{ item?.date | date : "mediumDate" }}</td>
+              <td>
+                <span
+                  [class]="{
+                    badge: true,
+                    'badge-success': typestatut[1] == item?.statut,
+                    'badge-info': typestatut[0] == item?.statut
+                  }"
+                  >{{ item?.statut }}</span
+                >
+              </td>
+              <td>
+                <a (click)="showdetail(item, i)" class="text-facebook mr-2">
+                  <i class="nav-icon i-Eye font-weight-bold tx-20"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 p-0" *ngIf="affichedetail">
+    <div class="col-md-12 pt-2 p-0">
+      <div class="card-body card p-2 no-radius mt-2">
+        <div class="row justify-content-between mg-0 pd-0">
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-md-10">
+                <ul class="nav float-left list-inline justify-content-left">
+                  <li class="nav-item">
+                    <a class="nav-link tx-facebook tx-14">
+                      <span class="">
+                        <i class="fal fa-eye tx-echos tx-20"></i>
+                      </span>
+                      {{ currentcommande?.id }}
+                    </a>
+                    <div class="triangle"></div>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-2">
+                <button
+                  class="btn btn-danger btn-rounded float-right"
+                  (click)="reset()"
+                >
+                  Retour
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 p-0">
+      <div class="col-md-12" *ngIf="!detailpanier">
+        <div class="col-md-12 text-center noData">
+          <app-loarding></app-loarding>
+        </div>
+      </div>
+      <div class="col-md-12 p-0" *ngIf="detailpanier">
+        <div class="row">
+          <div class="col-lg-6 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">Produits commandés</div>
+                <div class="table-responsive scroll-12">
+                  <table class="table table-hover table-sm mb-0">
+                    <tbody>
+                      <tr class="bd-b bd-2">
+                        <th class="tx-yeto2 tx-left"></th>
+                        <th class="tx-yeto2 tx-left">
+                          <p class="mg-0 tx-facebook tx-bold">Produit</p>
+                        </th>
+                        <th class="tx-yeto2 tx-left">
+                          <p class="mg-0 tx-facebook tx-bold">Prix unitaire</p>
+                        </th>
+                        <th class="tx-yeto2 tx-left">
+                          <p class="mg-0 tx-facebook tx-bold">Quantité</p>
+                        </th>
+                        <th class="tx-yeto2 tx-left">
+                          <p class="mg-0 tx-facebook tx-bold">Sous total</p>
+                        </th>
+                      </tr>
+                      <tr *ngFor="let item of detailpanier; let i = index">
+                        <td>
+                          <img
+                            [src]="item?.imgProduit"
+                            height="40"
+                            width="40"
+                          />
+                        </td>
+                        <td class="bd-r bd-2 bd-white">
+                          <div>
+                            <p class="mg-0 tx-primary mt-1 taillebody">
+                              {{ item?.nomProduit }}
+                            </p>
+                          </div>
+                        </td>
+                        <td class="tx-left">
+                          <div>
+                            <p class="mg-0 tx-primary mt-1">
+                              {{ item?.prixProduit }}
+                            </p>
+                          </div>
+                        </td>
+                        <td class="tx-center">
+                          <div>
+                            <p class="mg-0 tx-primary mt-1">
+                              {{ item?.quantite }}
+                            </p>
+                          </div>
+                        </td>
+                        <td class="tx-center">
+                          {{ item?.sous_total }}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12 mt-5">
+                    <div class="ul-product-cart__invoice">
+                      <div class="card-title">
+                        <h4 class="heading text-primary">Paiement</h4>
+                      </div>
+                      <table class="table">
+                        <tbody>
+                          <tr>
+                            <th scope="row" class="text-16">
+                              Nombre de produit
+                            </th>
+                            <td>
+                              <ul class="list-unstyled mb-0">
+                                <li>
+                                  <div class="">
+                                    <label class="text-left">
+                                      <span>{{ detailpanier?.length }}</span>
+                                    </label>
+                                  </div>
+                                </li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="text-primary text-16">
+                              Total :
+                            </th>
+                            <td class="font-weight-700 text-16 tx-left">
+                              {{ currentcommande?.total }}
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row" class="text-primary text-16">
+                              Statut:
+                            </th>
+                            <td class="font-weight-700 text-16 tx-left">
+                              <span
+                                [class]="{
+                                  badge: true,
+                                  'badge-success':
+                                    typestatut[1] == currentcommande?.statut,
+                                  'badge-info':
+                                    typestatut[0] == currentcommande?.statut
+                                }"
+                              >
+                                {{ currentcommande?.statut }}
+                              </span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <form action="">
+                  <div class="card-body">
+                    <div class="card-title">Detail livraison</div>
+
+                    <div class="form-row">
+                      <div class="form-group col-md-12">
+                        <label for="inputtext11" class="ul-form__label"
+                          >Prenom
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inputtext11"
+                          disabled
+                          [value]="currentcommande?.prenom"
+                        />
+                      </div>
+                      <div class="form-group col-md-12">
+                        <label for="inputEmail12" class="ul-form__label"
+                          >Nom</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inputEmail12"
+                          disabled
+                          [value]="currentcommande?.nom"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="custom-separator"></div>
+
+                    <div class="form-row">
+                      <div class="form-group col-md-12">
+                        <label for="inputtext16" class="ul-form__label"
+                          >Telephone</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inputtext16"
+                          disabled
+                          [value]="currentcommande?.telephone"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="custom-separator"></div>
+
+                    <div class="form-row">
+                      <div class="form-group col-md-12">
+                        <label for="inputEmail15" class="ul-form__label"
+                          >Address:</label
+                        >
+                        <div class="input-right-icon">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="inputEmail15"
+                            disabled
+                            [value]="currentcommande?.adresse"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="card-footer">
+                <div class="row text-right">
+                  <div class="col-lg-12">
+                    <ng-container
+                      *ngIf="typestatut[0] == currentcommande?.statut"
+                    >
+                      <button
+                        type="button"
+                        class="btn btn-success m-1"
+                        (click)="changestat(typestatut[1])"
+                      >
+                        <i
+                          *ngIf="loardstatut == true"
+                          class="fas fa-spinner fa-spin"
+                        ></i>
+                        {{ typestatut[1] }}
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-danger m-1"
+                        href="#deletecommandeModal"
+                        data-toggle="modal"
+                      >
+                        <i
+                          *ngIf="loardstatut == true"
+                          class="fas fa-spinner fa-spin"
+                        ></i>
+                        Annuler
+                      </button>
+                    </ng-container>
+                    <button
+                      type="button"
+                      class="btn btn-facebook m-1"
+                      *ngIf="
+                        typestatut[1] == currentcommande?.statut &&
+                        !currentcommande?.facture
+                      "
+                      data-toggle="modal"
+                      href="#factureModal"
+                    >
+                      Créer une facture
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-12" *ngIf="!commande">
+  <div class="col-md-12 text-center noData">
+    <app-loarding></app-loarding>
+  </div>
+</div>
+<!-- NO DATA -->
+<div *ngIf="loardcommande == false && commande" class="col-md-12">
+  <br /><br /><br /><br />
+  <div class="col-md-12 text-center noData">
+    <app-no-data></app-no-data>
+  </div>
+  <br /><br /><br /><br />
+</div>
+<!-- Facture Modal -->
+<div id="factureModal" class="modal fade" data-backdrop="static">
+  <div class="modal-dialog conf2">
+    <div class="modal-content">
+      <div class="modal-header bg-white">
+        <h5 class="modal-title tx-primary" id="exampleModalLongTitle">
+          <i class="fad fa-plus-circle tx-20"></i> Facturer
+        </h5>
+        <button
+          type="button"
+          class="close"
+          [disabled]="loardstatut == true"
+          (click)="initaddfacture()"
+          style="color: #0000ff"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body scroll-11">
+        <div class="col-md-12">
+          <form [formGroup]="addfactureForm">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="tx-facebook">Montant à payer&nbsp;</label>
+                    <input
+                      type="number"
+                      min="1"
+                      class="form-control no-radius"
+                      disabled
+                      [value]="currentcommande?.total"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="tx-facebook">Montant reçu&nbsp;</label>
+                    <input
+                      type="number"
+                      min="1"
+                      class="form-control no-radius"
+                      formControlName="montant_recu"
+                      (change)="verifymontant(addfactureForm)"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="tx-facebook">Montant restant</label>
+                    <input
+                      type="number"
+                      min="1"
+                      class="form-control no-radius"
+                      disabled
+                      [value]="montantrestant"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="col-md-12 text-center">
+          <button
+            (click)="initaddfacture()"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            [disabled]="loardstatut == true"
+          >
+            Annuler</button
+          >&nbsp;
+          <button
+            type="button"
+            class="btn btn-primary"
+            [disabled]="addfactureForm.invalid || loardstatut == true"
+            (click)="save_facture()"
+          >
+            <i *ngIf="loardstatut == true" class="fas fa-spinner fa-spin"></i>
+            Facturer
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal Application pour la suppression  -->
+<div
+  class="modal fade"
+  id="deletecommandeModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  data-backdrop="static"
+>
+  <div class="modal-dialog conf2" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-white">
+        <p class="modal-title tx-20 tx-primary" id="exampleModalLabel">
+          <i class="fad fa-trash tx-20"></i> Supprimer
+        </p>
+      </div>
+      <div class="modal-body scroll-11 col-md-12 text-center">
+        <h5>Voulez vous vraiment annuler la commande ?</h5>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button
+          type="reset"
+          class="btn btn-brand btn-secondary"
+          data-dismiss="modal"
+          [disabled]="loardstatut == true"
+        >
+          Non
+        </button>
+        <button
+          class="btn btn-brand btn-primary"
+          type="submit"
+          (click)="deletecommande()"
+          [disabled]="loardstatut == true"
+        >
+          Oui
+          <i *ngIf="loardstatut == true" class="fas fa-spinner fa-spin"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

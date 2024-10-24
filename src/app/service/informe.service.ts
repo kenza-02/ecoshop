@@ -41,10 +41,15 @@ export class InformeService {
   }
   //Informe Object to give a new data
   emitSubject(hote: string) {
-    this.crud.get(hote).subscribe((data: any) => {
-      this.tab = data;
-      this._Subject$.next(this.tab);
-    });
+    this.crud
+      .get(hote)
+      .then((value: any) => {
+        this.tab = value.data;
+        this._Subject$.next(this.tab);
+      })
+      .catch(() => {
+        this.shownotifier('ERROR');
+      });
   }
 
   //Close Modal from typescript
@@ -58,47 +63,47 @@ export class InformeService {
 
   add3(hote: string, formData: any) {
     this.statut = true;
-    this.crud.post(hote, formData).subscribe({
-      next: (data: any) => {
+    this.crud
+      .post(hote, formData)
+      .then((data: any) => {
         this.statut = false;
         this.tab.unshift(data);
         this._Subject$.next(this.tab);
         this.shownotifier('SUCCESS');
-      },
-      error: (error) => {
+      })
+      .catch(() => {
         this.statut = false;
         this.shownotifier('ERROR');
-      },
-    });
+      });
   }
 
   //Method to update and informe we have a new Data if update is succeed
   update(hote: string, formData: any, id: any, hote1: string, index: any) {
     this.updateloard = true;
-    this.crud.put(hote, formData, id).subscribe({
-      next: (data: any) => {
+    this.crud
+      .put(hote, formData, id)
+      .then((value: any) => {
         this.updateloard = false;
-        this.tab[index] = data;
+        this.tab[index] = value.data;
         this._Subject$.next(this.tab);
         this.shownotifier('SUCCESS');
-      },
-      error: (error) => {
+      })
+      .catch(() => {
         this.updateloard = false;
         this.shownotifier('ERROR');
-      },
-    });
+      });
   }
   //Method to add and informe we have a new Data who destroy if deleted is succeed
-  delete(hote: string, $id: any, hote1: string, index: any) {
-    this.crud.delete(hote, $id).subscribe({
-      next: (data) => {
+  delete(hote: string, $id: any, index: any) {
+    this.crud
+      .delete(hote, $id)
+      .then((value: any) => {
         this.tab.splice(index, 1);
         this._Subject$.next(this.tab);
         this.shownotifier('SUCCESS');
-      },
-      error: (error) => {
+      })
+      .catch(() => {
         this.showmessageerror("Une erreur s'est produite");
-      },
-    });
+      });
   }
 }

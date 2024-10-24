@@ -1,0 +1,39 @@
+<div class="col-md-12">
+  <div class="row justify-content-between mg-0 pd-0">
+    <div class="col-lg-12">
+      <h5 class="tx-ether tx-20 tx-bolder">
+        <i
+          class="fad fa-bags-shopping bg-white tx-primary tx-30"
+          style="padding: 6px; border-radius: 50%"
+        ></i>
+        Géstion des commandes
+      </h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-2 p-2 bg-white">
+      <nav class="monmenu nav flex-column mycard4">
+        <ng-container *ngFor="let item of mymenu">
+          <div
+            [ngClass]="{
+              'd-flex align-items-center justify-content-between pb-3 pt-3 bd-b ': true,
+              'bg-gray': currentname == item?.action
+            }"
+          >
+            <a (click)="setName(item?.action)" class="nav-link3 tx-primary"
+              ><i [class]="item?.icone"></i> {{ item?.nom }}</a
+            >
+          </div>
+        </ng-container>
+      </nav>
+    </div>
+    <div class="col-md-10 bg-light py-4">
+      <ng-container *ngIf="currentname == mymenu[0]?.action">
+        <app-listcommande></app-listcommande>
+      </ng-container>
+      <ng-container *ngIf="currentname == mymenu[1]?.action">
+        <app-facture></app-facture>
+      </ng-container>
+    </div>
+  </div>
+</div>
